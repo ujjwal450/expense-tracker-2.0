@@ -1,15 +1,22 @@
 import ExpenseList from './ExpenseList'
 const ExpenseYear = (props) => {
+  let totalItems = Object.keys(props.items).length
+  let totalPrice = 0
+  
+  props.items.forEach((item)=> {
+    totalPrice = totalPrice + item.price
+  })
+  // console.log(props.items)
   return(
     <div>
       <div>
-        {props.items.year}
+        {props.year}
       </div>
       <div>
-            {props.items.totalItems}
+            {totalItems}
       </div>
       <div>
-            {props.items.totalPrice}
+            {totalPrice}
       </div>
       <div>
         <ExpenseList items = {props.items}/>

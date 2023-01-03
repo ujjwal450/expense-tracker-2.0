@@ -1,11 +1,11 @@
 import ExpenseItem from "./ExpenseItem"
 const ExpenseList = (props) => {
+  // console.log(props.items)
   return(
     <div>
-      {/* array.forEach(element => {
-        
-      }); */}
-      <ExpenseItem item = {props.item}/>
+      {props.items.map((item)=> {
+        return <ExpenseItem item={item}/>
+      })}
     </div>
   )
 }
