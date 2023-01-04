@@ -1,5 +1,7 @@
+import {useState} from 'react'
 import ExpenseList from './ExpenseList'
 const ExpenseYear = (props) => {
+  const [showExpenseList, setShowExpenseList] = useState(false)
   let totalItems = Object.keys(props.items).length
   let totalPrice = 0
   
@@ -7,8 +9,16 @@ const ExpenseYear = (props) => {
     totalPrice = totalPrice + item.price
   })
   // console.log(props.items)
+  const showExpenseListHandler = () => {
+    console.log("clicked")
+    setShowExpenseList((prevState) => {
+      return !prevState
+    })
+    console.log(showExpenseList)
+  }
   return(
     <div>
+    <div onClick={showExpenseListHandler}>
       <div>
         {props.year}
       </div>
@@ -18,9 +28,10 @@ const ExpenseYear = (props) => {
       <div>
             {totalPrice}
       </div>
-      <div>
-        <ExpenseList items = {props.items}/>
-      </div>
+      {showExpenseList && <ExpenseList items = {props.items}/>}
+      
+    </div>
+    {showExpenseList && <button onClick={showExpenseListHandler}>Close</button>}
     </div>
   )
 }
