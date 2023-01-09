@@ -1,13 +1,16 @@
-import './App.css';
-import Expenses from './components/Expenses/Expenses';
 
+import Expenses from './components/Expenses/Expenses';
+import { Fragment } from 'react';
+import Header from './components/Layout/Header';
 function App() {
   console.log("test")
   return (
-    <div className="App">
-      <div>test</div>
+    <Fragment>
+      <Header/>
+    <main>
       <Expenses/>
-    </div>
+    </main>
+    </Fragment>
   );
 }
 

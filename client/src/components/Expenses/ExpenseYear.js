@@ -17,7 +17,7 @@ const ExpenseYear = (props) => {
     console.log(showExpenseList)
   }
   return(
-    <div>
+    <section>
     <div onClick={showExpenseListHandler}>
       <div>
         {props.year}
@@ -32,7 +32,7 @@ const ExpenseYear = (props) => {
       
     </div>
     {showExpenseList && <button onClick={showExpenseListHandler}>Close</button>}
-    </div>
+    </section>
   )
 }
 
